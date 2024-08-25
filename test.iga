@@ -1,0 +1,60 @@
+LOAD $1a #1
+LOAD $6 #3
+LOAD $5 #34800
+LOAD $4 #34815
+
+main:
+
+JMP input
+
+MOV $4 $7
+ADD $0a $1a $0a
+
+fill:
+
+STORE $0a
+ADD $7 $6 $7
+
+LES $7 $5
+NJMP fill
+
+JDRAW main
+
+input:
+
+EQ $1 $7
+
+LOAD $7 0x87FE
+READ $1b
+
+EQ $1b $1a
+CJMP up_key
+
+LOAD $7 0x87FC
+READ $1b
+
+EQ $1b $1a
+//CJMP left_key
+
+LOAD $7 0x87FB
+READ $1b
+
+EQ $1b $1a
+//CJMP right_key
+
+RET
+
+up_key:
+
+LOAD $4 #34815
+RET
+
+left_key:
+
+LOAD $4 #34816
+RET
+
+right_key:
+
+LOAD $4 #34817
+RET
