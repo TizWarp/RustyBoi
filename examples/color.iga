@@ -1,0 +1,28 @@
+const VRAM_START 0x87FF
+
+// Change to do wierd stuff
+const VRAM_STEP #1
+
+main:
+
+CALL clear_screen
+
+JDRAW main
+
+clear_screen:
+
+LOAD $7 VRAM_START
+LOAD $6 VRAM_START
+LOAD $5 VRAM_STEP
+
+// Change color here
+
+LOAD $1a #255
+loop:
+
+STORE $1a
+ADD $7 $5 $7
+
+LES $6 $7
+CJMP loop
+RET
