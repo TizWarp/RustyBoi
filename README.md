@@ -128,6 +128,10 @@ RET
 ## App Usage
 
 Compiling
+
 cargo run c [input_file] [output_file]
+
+
 Executing
+
 cargo run e [program_file] 
