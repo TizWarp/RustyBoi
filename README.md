@@ -85,6 +85,8 @@ Labels declarations are a name followed by a colon "name:" when referencing a la
 
 #### Syntax Examples 
 ```
+const VRAM_START 0x87FF
+
 main:
 
 CALL clear_screen
@@ -92,8 +94,8 @@ CALL clear_screen
 JDRAW main
 
 clear_screen:
-LOAD $7 0x87FF
-LOAD $6 0x87FF
+LOAD $7 VRAM_START
+LOAD $6 VRAM_START
 LOAD $5 #1
 LOAD $0a #255
 
