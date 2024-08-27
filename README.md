@@ -15,14 +15,21 @@ The VM will read instruction from the Program memory only
 
 ### Memory Map
 0x0000 -> Up Input Address -> Up arrow/W
+
 0x0001 -> Down Input Address -> Down Arrow/S
+
 0x0002 -> Right Input Address -> Right Arrow/D
+
 0x0003 -> Left Input Address -> Left Arrow/A
 
+
 0x0004 -> Workable Ram Start
+
 0x87FE -> Stack Start / Workable Ram End
 
+
 0x87FF -> Graphics Ram Start
+
 0xFFFF -> Graphics Ram End
 
 ### Display
@@ -121,6 +128,10 @@ RET
 ## App Usage
 
 Compiling
+
 cargo run c [input_file] [output_file]
+
+
 Executing
+
 cargo run e [program_file] 
