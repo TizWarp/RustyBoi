@@ -75,13 +75,22 @@ The screen is updated whenever the VM returns from it's internal run loop. this 
 ### Assembly Syntax
 
 Opcode are written as above, operands are space separated.
+
 A 16 register is declared by $ symbol followed by a number 0 - 7
+
 To select a 8bit half of a register add an "a" for the first half or a "b" for the second half
+
 All opcodes that take register operands will automatically select the correct width.
+
 All register operands for an opcode must share the same width
+
 Constants are declared as follows : "const "name" "immediate value"
+
 Immediate values are either a decimal prefixed with a "#" or hex prefixed with a "0x"
+
 Labels declarations are a name followed by a colon "name:" when referencing a label do not include the colon
+
+// denotes a comment
 
 #### Syntax Examples 
 ```
