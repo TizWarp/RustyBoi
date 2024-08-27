@@ -62,7 +62,7 @@ pub fn run_vm(mut rusty_boi: RustyBoi) -> Result<(), String> {
 
         rusty_boi.run();
 
-        //println!("{:?}", rusty_boi.read_memory_byte(0x8000));
+        println!("{:?}", rusty_boi.read_memory_word(0x8000));
 
         render(&mut canvas, &rusty_boi);
     }

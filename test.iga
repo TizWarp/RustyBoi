@@ -1,60 +1,61 @@
-LOAD $1a #1
-LOAD $6 #3
-LOAD $5 #34800
-LOAD $4 #34815
+const BALL_X 0x8000
+const BALL_Y 0x8002
 
 main:
 
-JMP input
-
-MOV $4 $7
-ADD $0a $1a $0a
-
-fill:
-
-STORE $0a
-ADD $7 $6 $7
-
-LES $7 $5
-NJMP fill
+CALL clear_screen
+CALL test
+CALL draw_ball
 
 JDRAW main
 
-input:
 
-EQ $1 $7
+test:
 
-LOAD $7 0x87FE
-READ $1b
-
-EQ $1b $1a
-CJMP up_key
-
-LOAD $7 0x87FC
-READ $1b
-
-EQ $1b $1a
-//CJMP left_key
-
-LOAD $7 0x87FB
-READ $1b
-
-EQ $1b $1a
-//CJMP right_key
+LOAD $7 BALL_X
+READ $0
+LOAD $1 #1
+SHR $0 $1 $0
+STORE $0
 
 RET
 
-up_key:
 
-LOAD $4 #34815
+draw_ball:
+LOAD $7 BALL_X
+READ $0
+
+LOAD $1 #240
+MUL $0 $1 $0
+
+LOAD $7 BALL_Y
+READ $1
+LOAD $2 #3
+MUL $1 $2 $1
+
+LOAD $7 #34815
+ADD $7 $0 $7
+ADD $7 $1 $7
+
+LOAD $0a #255
+STORE $0a
+
 RET
 
-left_key:
 
-LOAD $4 #34816
-RET
+clear_screen:
 
-right_key:
+LOAD $7 #34815
+LOAD $6 #34815
+LOAD $5 #1
+LOAD $0a #0
 
-LOAD $4 #34817
+clear_loop:
+
+STORE $0a
+ADD $5 $7 $7
+
+LES $6 $7
+CJMP clear_loop
+
 RET
