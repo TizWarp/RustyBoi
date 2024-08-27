@@ -3,7 +3,7 @@ use crate::{
     register_file::{FlagRegister, RegisterAddress, RegisterFile},
 };
 
-const STACK_START: u16 = 0x00ff;
+const STACK_START: u16 = 0x87FE;
 
 pub struct RustyBoi {
     sp: u16,
